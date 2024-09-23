@@ -19,7 +19,7 @@ comb.metadata <- sample.metadata %>%
 
 ## Write combined metadata file to output directory
 data.table::fwrite(comb.metadata, sep = ",", row.names = FALSE, col.names = TRUE,
-                   paste0("output/", format(Sys.time(), "%Y-%m-%d"), "_combined_metadata.csv"))
+                   paste0("output/", format(Sys.time(), "%Y-%m-%d"), "_MFD_combined_metadata.csv"))
 
 ## Sanity check
 intersect(seq.metadata$fieldsample_barcode, sample.metadata$fieldsample_barcode) %>% length()
