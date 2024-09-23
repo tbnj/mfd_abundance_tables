@@ -25,4 +25,4 @@ The generated profiles can be thought of as taxonomic bins.
 `scripts/create_ampvis_euk.R` imports the genus-aggregated table, filters and performs a single subsampling without replacement. 
 
 ## Data
-The scripts rely on data files available from the MFD Zenodo [repo](https://zenodo.org/records/12605769), from where the original output files are also available. 
+The scripts rely on data files available from the MFD Zenodo [repo](https://zenodo.org/records/12605769) and the MFD [github](https://github.com/cmc-aau/mfd_metadata), from where the original output files are also available. 
