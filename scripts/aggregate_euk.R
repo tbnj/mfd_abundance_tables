@@ -1,21 +1,18 @@
 ### Setup env
-library(dplyr)
-library(tibble)
-library(stringr) 
-library(tidyr)
+library(tidyverse)
 
 setwd("/mfd_abundance_tables")
 
 ### Import metadata files
-seq.metadata <- readr::read_csv("data/2023-10-11_samples_minimal_metadata_collapsed.csv")
+seq.metadata <- readr::read_csv("data/2025-05-07_MFD_laboratory_metadata_collapsed.csv")
 
-sample.metadata <- readxl::read_excel("data/2025-02-13_mfd_db.xlsx") %>%
-  filter(!is.na(accession))
+sample.metadata <- readxl::read_excel("data/2025-04-14_mfd_db.xlsx") %>%
+  filter(!is.na(BioSample))
 
 ## Combine metadata and filter for unused projects
 comb.metadata <- sample.metadata %>%
   left_join(seq.metadata, by = "fieldsample_barcode") %>%
-  filter(!is.na(before_total_reads))
+  filter(!is.na(before_total_reads_collapsed))
 
 ## Write combined metadata file to output directory
 ## Uncomment if arcbac-version of script was not run beforehand
