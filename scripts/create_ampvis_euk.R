@@ -5,13 +5,13 @@ library(tidyverse)
 setwd("/mfd_abudance_tables")
 
 ### Import sample metadata
-combined.metadata <- data.table::fread('/output/2024-03-07_combined_metadata.csv',
+combined.metadata <- data.table::fread('output/2025-02-13_MFD_combined_metadata.csv',
                                        sep = ",", na.strings = "") %>%
   relocate(fieldsample_barcode, .before = project_id)
 
 
 ### Import aggregated observational table
-genus.table.euk <- data.table::fread('/output/2024-03-07_MFD_euk_aggregated_genus.csv', 
+genus.table.euk <- data.table::fread('output/2025-02-13_MFD_euk_aggregated_genus.csv', 
                                         sep = ",", header = TRUE)
 
 
@@ -68,7 +68,11 @@ set.seed(123) # needed as this is a random process
 mfd.ampvis.euk.ra <- mfd.ampvis.euk %>%
   amp_subset_samples(., rarefy = rarefy, normalise = FALSE)
 
-## Clean and save image to disk
+### Clean and save image to disk
 rm(list=setdiff(ls(), c("metadata.filt", "mfd.ampvis.euk", "mfd.ampvis.euk.ra")))
 
-save.image('output/2024-03-07_mfd-ampvis-euk-data.RData')
+save.image(paste0('release/', format(Sys.time(), "%Y-%m-%d"), "_MFD_ampvis_euk_data.RData"))
+
+rm(list=ls())
+gc()
+
