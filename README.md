@@ -7,7 +7,7 @@ The generated profiles can be thought of as taxonomic bins.
 
 ## Scripts
 ### Amplicon 16S data 
-`scripts/aggregate_FL16s.R` aggregates data from 16S sequences based on the Nanopore-UMI and PacBio operon sequencing. 
+`scripts/format_FL16s.R` formats an OTU table from the 16S rRNA gene data generated with the UMI Nanopore protocol. 
 
 ### Metagenomic 16S data 
 `scripts/aggregate_arcbac.R` aggreate data from 16S fragments dervied from the metagenomes.
@@ -25,4 +25,4 @@ The generated profiles can be thought of as taxonomic bins.
 `scripts/create_ampvis_euk.R` imports the genus-aggregated table, filters and performs a single subsampling without replacement. 
 
 ## Data
-The scripts rely on data files available from the MFD Zenodo [repo](https://zenodo.org/records/12605769) and the MFD [github](https://github.com/cmc-aau/mfd_metadata), from where the original output files are also available. 
+The scripts rely on data files available from the MFD [github](https://github.com/cmc-aau/mfd_metadata) and the MFD Zenodo [repo](https://zenodo.org/records/12605769), from where the output files used in the manuscript are also available. 
